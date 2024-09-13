@@ -1,0 +1,14 @@
+.hobbyBadgeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 8px;
+    height: fit-content;
+    max-height: 100px;
+    overflow: auto;
+    margin-bottom: 8px;
+}
+.hobbyBadgeContainer:hover{
+    border: 1px solid rgb(60, 164, 255);
+}
