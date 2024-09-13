@@ -120,6 +120,7 @@ export const SignupPage = () => {
                         </p>
                     </>
                 )}
+                <div style={{ height: '32px'}}></div>
             </Container>
         </PageWrapper>
     );

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useLogout } from "../../../hooks/api/useApiAuth";
 import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
 import { getUserFromSessionStorage } from "../../../hooks/sessionStorage/userSessionStorage";
-import { Container, Button, Spinner, Alert, Stack } from 'react-bootstrap';
+import { Container, Button, Spinner, Alert, Stack, Row, Col } from 'react-bootstrap';
 
 export const LogoutPage = () => {
     const { doLogout, loading, error, setError } = useLogout();
@@ -37,10 +37,14 @@ export const LogoutPage = () => {
                             </Alert>
                         ) : null } 
 
-                        <Stack gap={4} className="mx-auto">
-                            <Button variant="dark"  size="lg" onClick={onClickLogout}>ログアウトする</Button>
-                            <Button variant="outline-dark"  size="lg" onClick={onClickBack}>ホームに戻る</Button>
-                        </Stack>
+                        <Row  className="justify-content-center">
+                            <Col sm={12} md={6} lg={4} className="mb-2 mt-2">
+                                <Stack gap={4} className="mx-auto">
+                                    <Button variant="dark"  size="lg" onClick={onClickLogout}>ログアウトする</Button>
+                                    <Button variant="outline-dark"  size="lg" onClick={onClickBack}>ホームに戻る</Button>
+                                </Stack>
+                            </Col>
+                        </Row>
                     </>
                 )}
             </Container>
