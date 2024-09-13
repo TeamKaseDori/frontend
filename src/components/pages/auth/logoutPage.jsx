@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useLogout } from "../../hooks/api/useApiAuth";
-import {PageWrapper} from "../organisms/wrapper/pageWrapper";
-import { getUserFromSessionStorage } from "../../hooks/sessionStorage/userSessionStorage";
+import { useLogout } from "../../../hooks/api/useApiAuth";
+import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
+import { getUserFromSessionStorage } from "../../../hooks/sessionStorage/userSessionStorage";
 import { Container, Button, Spinner, Alert, Stack } from 'react-bootstrap';
 
 export const LogoutPage = () => {

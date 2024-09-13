@@ -1,4 +1,4 @@
-import {PageWrapper} from "../organisms/wrapper/pageWrapper";
+import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
 
 export const MatchingPage = () => {
     return (

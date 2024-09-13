@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from '../components/pages/homePage';
 import { UserPage } from '../components/pages/userPage';
-import { LogoutPage } from '../components/pages/logoutPage';
-import { LoginPage } from '../components/pages/loginPage';
-import { SignupPage } from '../components/pages/signupPage';
 import { Page404 } from '../components/pages/page404';
-import { MatchingPage } from '../components/pages/matchingPage';
+import { MatchingPage } from '../components/pages/matching/matchingPage';
 import { MessagePage } from '../components/pages/messagePage';
-import { LeaderPage } from '../components/pages/leaderPage';
+import { LeaderPage } from '../components/pages/matching/leaderPage';
+import { LogoutPage } from '../components/pages/auth/logoutPage';
+import { LoginPage } from '../components/pages/auth/loginPage';
+import { SignupPage } from '../components/pages/auth/signupPage';
 
 
 
