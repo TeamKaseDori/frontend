@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useGeolocationTracker } from "../../hooks/location/useGeolocationTracker";
-import { useGeoPythagoreanDistance } from "../../hooks/calculation/useCalculation";
-import {DistanceOnlyCircle} from "../organisms/leader/circle/distanceOnlyCircle";
-import {PageWrapper} from "../organisms/wrapper/pageWrapper";
+import { useGeolocationTracker } from "../../../hooks/location/useGeolocationTracker";
+import { useGeoPythagoreanDistance } from "../../../hooks/calculation/useCalculation";
+import {DistanceOnlyCircle} from "../../organisms/leader/circle/distanceOnlyCircle";
+import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
 import Spinner from 'react-bootstrap/Spinner';
 
 
