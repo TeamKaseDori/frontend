@@ -12,6 +12,7 @@ export const saveUserToSessionStorage = (object) => {
 // ユーザー情報を取得する関数
 const noLoginUser = {
     is_login: true,
+    is_matching: false,
     email: "",
     username: "",
     token: "",
