@@ -3,10 +3,11 @@ import { useGeolocationTracker } from "../../../hooks/location/useGeolocationTra
 import { useGeoPythagoreanDistance } from "../../../hooks/calculation/useCalculation";
 import {DistanceOnlyCircle} from "../../organisms/leader/distanceOnlyCircle";
 import Spinner from 'react-bootstrap/Spinner';
-import { Button, Container, Form, Modal, Tab, Tabs } from "react-bootstrap";
+import { Button, Container, Form, Modal, OverlayTrigger, Tab, Tabs, Tooltip } from "react-bootstrap";
 import { PartnerDirection } from "../../../hooks/calculation/useCalculation";
 import { ExplanationMatchingFlush } from "../../molecules/explanationFlush";
 import { useNavigate } from "react-router-dom";
+import { DistanceDirectionCircle } from "../../organisms/leader/distanceDirectionCircle";
 
 const TestDataTokyoStation = {
     Latitude:35.6809591,
@@ -21,6 +22,8 @@ export const LeaderPage = () => {
 
     const [distance, setDistance] = useState(999999);
     const [preDistance, setPreDistance] = useState(999999);
+
+    const [targetDirection, setTargetDirection] = useState(0);
 
     const [selfCoords, setSelfCoords] = useState(undefined);
 
@@ -43,26 +46,76 @@ export const LeaderPage = () => {
             const newDistance = calculatedDistance;
             setPreDistance(distance);
             setDistance(newDistance);
+            setTargetDirection(PartnerDirection(
+                TestDataTokyoStation.Latitude, 
+                TestDataTokyoStation.Longitude, 
+                selfCoords.coords.latitude, 
+                selfCoords.coords.longitude
+            ));
         }
         console.log("位置情報を取得しました");
     }, [selfCoords, calculatedDistance]); 
 
+    
+
     return (
         <Container>
             <Tabs
-                defaultActiveKey="leader"
+                defaultActiveKey="leader1"
                 id="tab"
                 className="mb-3 mt-3"
                 fill
             >
 
-                <Tab eventKey="leader" title="Laeder">
+                <Tab eventKey="leader1" title="Laeder Ⅰ">
                     <div style={{ 
                         textAlign: 'center', width: '100%', height: '80vh', 
                         display: 'flex', justifyContent: 'center', alignItems: 'center',
                     }}>
                         {selfCoords ? (
-                        <DistanceOnlyCircle distance={distance} preDistance={preDistance}/>
+                            <OverlayTrigger
+                                placement="bottom"
+                                delay={{ show: 250, hide: 400 }}
+                                overlay={<Tooltip>
+                                        向かう方向が正しいと大きくなります。
+                                        <br />
+                                        相手との距離が狭まると青色になります。
+                                    </Tooltip>
+                                    }
+                            >
+                                <div>
+                                    <DistanceDirectionCircle 
+                                        distance={distance} preDistance={preDistance}  
+                                        myDirection={selfCoords.coords.heading} targetDirection={targetDirection}
+                                    />
+                                </div>
+                            </OverlayTrigger>
+                        ) : (
+                            <Spinner animation="border" />
+                        )}
+                    </div>
+                </Tab>
+
+                <Tab eventKey="leader2" title="Laeder Ⅱ">
+                    <div style={{ 
+                        textAlign: 'center', width: '100%', height: '80vh', 
+                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    }}>
+                        {selfCoords ? (
+                            <OverlayTrigger
+                                placement="bottom"
+                                delay={{ show: 250, hide: 400 }}
+                                overlay={<Tooltip>
+                                        相手との距離を切り上げ５の倍数で表示します。
+                                        <br />
+                                        相手との距離が狭まると青色になります。
+                                    </Tooltip>
+                                    }
+                            >
+                                <div>
+                                    <DistanceOnlyCircle distance={distance} preDistance={preDistance}/>
+                                </div>
+                            </OverlayTrigger>
                         ) : (
                             <Spinner animation="border" />
                         )}
@@ -113,7 +166,7 @@ export const LeaderPage = () => {
                                         <p>緯度: {selfCoords.coords.latitude}</p>
                                         <p>経度: {selfCoords.coords.longitude}</p>
                                         <p>移動方向: {selfCoords.coords.heading ?? '移動してください'}</p>
-                                        <p>相手の方向 {PartnerDirection(TestDataTokyoStation.Latitude, TestDataTokyoStation.Longitude, selfCoords.coords.latitude, selfCoords.coords.longitude)} </p>    
+                                        <p>相手の方向 {targetDirection} </p>    
                                     </>
                                 ) : (
                                     <>
