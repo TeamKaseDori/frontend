@@ -5,6 +5,7 @@ import {DistanceOnlyCircle} from "../../organisms/leader/circle/distanceOnlyCirc
 import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
 import Spinner from 'react-bootstrap/Spinner';
 import { Container } from "react-bootstrap";
+import { PartnerDirection } from "../../../hooks/calculation/useCalculation";
 
 const TestDataTokyoStation = {
     Latitude:35.6809591,
@@ -46,6 +47,7 @@ export const LeaderPage = () => {
                             <p>緯度: {selfCoords.coords.latitude}</p>
                             <p>経度: {selfCoords.coords.longitude}</p>
                             <p>移動方向: {selfCoords.coords.heading ?? '移動してください'}</p>
+                            <p>相手の方向 {PartnerDirection(TestDataTokyoStation.Latitude, TestDataTokyoStation.Longitude, selfCoords.coords.latitude, selfCoords.coords.longitude)} </p>    
                         </>
                     ) : (
                         <>
