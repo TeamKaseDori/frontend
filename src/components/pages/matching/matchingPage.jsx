@@ -8,7 +8,7 @@ export const MatchingPage = () => {
         >
             <Row>
                 <Col className="text-center">
-                    <Spinner animation="border" role="status" className="mb-3">
+                    <Spinner animation="grow" role="status" className="mb-3">
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                     <p>マッチング中...</p>
