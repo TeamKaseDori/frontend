@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { PageWrapper } from "../organisms/wrapper/pageWrapper";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { useState } from "react";
+import { ExplanationFlush } from "../molecules/explanationFlush";
 
 
 export const HomePage = () => {
@@ -47,6 +48,7 @@ export const HomePage = () => {
     return (
         <PageWrapper>
             <Container className="text-center mt-4 mb-4">
+                <div style={{ height: '24px'}}></div>
 
                 <Row className="mb-3">
                     {buttonData.map((button, index) => (
@@ -66,7 +68,7 @@ export const HomePage = () => {
                     ))}
                 </Row>
 
-                {/* モーダル（確認ダイアログ） */}
+
                 <Modal show={showModal} onHide={handleClose} size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered>
@@ -86,6 +88,10 @@ export const HomePage = () => {
                         </Button>
                     </Modal.Footer>
                 </Modal>
+
+                <div style={{ height: '48px'}}></div>
+
+                <ExplanationFlush />
             </Container>
         </PageWrapper>
     );
