@@ -34,14 +34,16 @@ export const HomePage = () => {
             text: 'シンプルマッチング',
             modalMessage: 'シンプルマッチングを開始しますか？',
             modalMessage2: '位置情報などをもとにランダムでマッチングします。',
-            onConfirm: StartMatching
+            onConfirm: StartMatching,
+            iaActive: true
         },
         { 
             variant: 'secondary', 
-            text: '異性マッチング',
-            modalMessage: '異性マッチングを開始しますか？',
-            modalMessage2: '性別や位置情報などをもとにランダムでマッチングします。',
-            onConfirm: StartMatching
+            text: '趣味マッチング',
+            modalMessage: '趣味マッチングを開始しますか？',
+            modalMessage2: '登録した趣味や位置情報などをもとにランダムでマッチングします。',
+            onConfirm: StartMatching,
+            iaActive: false
         },
     ];
 
@@ -59,6 +61,7 @@ export const HomePage = () => {
                                 className="w-100"
                                 style={{ height: '180px' }}
                                 onClick={() => handleShow(button)}
+                                disabled={!button.iaActive}
                             >
                                 <span className="display-6">
                                     {button.text}

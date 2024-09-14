@@ -12,9 +12,9 @@ export const ExplanationFlush = () => {
       </Accordion.Item>
 
       <Accordion.Item eventKey="1">
-        <Accordion.Header>異性マッチングとはなんですか？</Accordion.Header>
+        <Accordion.Header>趣味マッチングとはなんですか？</Accordion.Header>
         <Accordion.Body>
-          異性マッチングは、位置情報や移動方向、性別によってランダムにマッチングさせる機能のことです。
+          趣味マッチングは、位置情報や移動方向、登録した趣味によってランダムにマッチングさせる機能のことです。
         </Accordion.Body>
       </Accordion.Item>
 
