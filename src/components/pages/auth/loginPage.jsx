@@ -4,7 +4,6 @@ import { useLogin } from '../../../hooks/api/useApiAuth';
 import { PageWrapper } from '../../organisms/wrapper/pageWrapper';
 
 
-
 export const LoginPage = () => {
     const { doLogin, loading, error, setError } = useLogin();
 
