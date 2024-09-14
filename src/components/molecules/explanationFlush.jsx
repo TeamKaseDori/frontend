@@ -36,3 +36,26 @@ export const ExplanationFlush = () => {
   );
 }
 
+
+export const ExplanationMatchingFlush = () => {
+  return (
+    <Accordion  defaultActiveKey="0">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>途中でキャンセルしたい</Accordion.Header>
+        <Accordion.Body>
+          上記のマッチングをキャンセルすると書かれたボタンを押すとキャンセルできます。
+          ただし、正当な理由なくキャンセルした場合はしばらくの間マッチングを行うことができなくなります。
+        </Accordion.Body>
+      </Accordion.Item>
+
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>相手に会える気がしません</Accordion.Header>
+        <Accordion.Body>
+          Hintボタンから相手の座標、距離、方向を確認することができます。
+        </Accordion.Body>
+      </Accordion.Item>
+
+    </Accordion>
+  );
+}
+
