@@ -44,18 +44,27 @@ export const MatchingPage = () => {
             <Modal show={showModal}  size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered>
-                <Modal.Header>
-                    <Modal.Title>
-                        マッチングに成功しました
-                    </Modal.Title>
-                </Modal.Header>
+                <Modal.Body>
+                    <div style={{ 
+                        width: '100%', height: '20vh', 
+                        display: 'flex', justifyContent: 'center', alignItems: 'center', 
+                        textAlign: 'center',
+                    }}>
+                        <p className="display-6">マッチングに成功しました 🎉</p>
+                    </div>
+                </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCancel}>
-                        キャンセル
-                    </Button>
-                    <Button variant="primary" onClick={StartLeading}>
-                        待ち合わせ開始
-                    </Button>
+                    <div style={{ 
+                            width: '100%', height: 'fit-contet', 
+                            display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', 
+                        }}>
+                        <Button variant="secondary" onClick={handleCancel}>
+                            キャンセル
+                        </Button>
+                        <Button variant="primary" onClick={StartLeading} size="lg">
+                            確定する
+                        </Button>
+                    </div>
                 </Modal.Footer>
             </Modal>
 
