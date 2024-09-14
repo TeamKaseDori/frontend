@@ -13,7 +13,6 @@ export const Header = () => {
                 <Nav.Link href="/login">ログイン</Nav.Link>
                 <Nav.Link href="/signup">アカウント登録</Nav.Link>
                 <Nav.Link href="/user">ユーザー</Nav.Link>
-                <Nav.Link href="/matching">マッチング</Nav.Link>
             </Nav>
             </Navbar.Collapse>
         </Container>
