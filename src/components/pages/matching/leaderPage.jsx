@@ -49,7 +49,7 @@ export const LeaderPage = () => {
                         </>
                     ) : (
                         <>
-                            <Spinner animation="border" />;
+                            <Spinner animation="border" />
                         </>
                     )}
 
