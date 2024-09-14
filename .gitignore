@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# 追加
+# 環境変数
 .env

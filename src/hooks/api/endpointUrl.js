@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const EndpointUrl:string = import.meta.env.VITE_API_URL
-const EndpointUrl = ""
+const EndpointUrl = "http://localhost:5178"
 
 export const apiClient = axios.create({
     baseURL: EndpointUrl,
@@ -13,5 +13,5 @@ export const apiClient = axios.create({
 
 
 export const authHeader = (token) => ({
-    headers: { Authorization: `Token ${token}` },
+    headers: { Authorization: `Bearer ${token}` },
 });
