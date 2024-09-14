@@ -3,7 +3,8 @@ import { Container, Alert, Form, Button, Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import { useSignUp } from "../../../hooks/api/useApiAuth";
 import { HobbiesSelector } from "../../molecules/hobbiesSelector/hobbiesSelector";
-import { hobbies } from "../../data/dataSet";
+import { HobbiesData } from "../../../data/hobbiesData";
+
 
 export const SignupPage = () => {
     const { doSignUp, loading, error, setError } = useSignUp();
@@ -104,7 +105,7 @@ export const SignupPage = () => {
                             </Form.Select>
 
                             <HobbiesSelector
-                                hobbies={hobbies}
+                                hobbies={HobbiesData}
                                 userHobbies={userHobbies}
                                 setUserHobbies={setUserHobbies}
                             />
