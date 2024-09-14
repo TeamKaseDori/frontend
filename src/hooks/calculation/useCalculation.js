@@ -15,3 +15,12 @@ export const useGeoPythagoreanDistance = (
 
     return distanceMeters;
 };
+
+export const PartnerDirection = (partnerLat, partnerLon, myLat, myLon) => {
+    let LatitudeDifference = partnerLat - myLat
+    let LongitudeDifference = partnerLon - myLon
+    
+    let angle = Math.atan(LatitudeDifference / LongitudeDifference) * 180 / Math.PI
+    
+    return(angle)
+}
