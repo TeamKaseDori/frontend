@@ -44,6 +44,7 @@ export const useLogout = () => {
     const [error, setError] = useState(false);
     const navigate = useNavigate()
     const retrievedUser = getUserFromSessionStorage();
+    //console.log(retrievedUser.token);
 
     const doLogout = useCallback(async() => {
         if(retrievedUser.is_login){
@@ -76,15 +77,29 @@ export const useSignUp = () => {
     const [error, setError] = useState(false);
     const navigate = useNavigate()
 
-    const doSignUp = useCallback(async(data) => {
+    // const doSignUp = useCallback(async(data) => {
+    const doSignUp = useCallback(async() => {
         try {
             console.log("サインアップ");
             setLoading(true);
             setError(false);
 
-            await apiClient.post('/auth/register', data);
+            // await apiClient.post('/auth/register', data);
+            // navigate('/login');
+            // alert('新規登録しました');
+            const result = await apiClient.get('/register');
+
+            const user = {
+                is_login: true,
+                is_matching: false,
+                username: "",
+                email: "",
+                token: result.data.token,
+            };
+            saveUserToSessionStorage(user);
+            
             navigate('/login');
-            alert('新規登録しました');
+            alert('トークンを取得しました');
 
         } catch {
             setError(true);
