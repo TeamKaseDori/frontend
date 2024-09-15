@@ -1,0 +1,12 @@
+.carouselContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    }
+    
+.carouselImage {
+        width: 100px; 
+        height: auto;
+        border-bottom: 2px solid rgb(60, 60, 60);
+    }
