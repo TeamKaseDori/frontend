@@ -6,11 +6,29 @@ import {PageWrapper} from "../../organisms/wrapper/pageWrapper";
 import Spinner from 'react-bootstrap/Spinner';
 import { Container } from "react-bootstrap";
 import { PartnerDirection } from "../../../hooks/calculation/useCalculation";
+import io from 'socket.io-client';
 
 const TestDataTokyoStation = {
     Latitude:35.6809591,
     Longitude:139.7673068
 }
+
+const WebSocketComponent = () => {
+    useEffect ( () => {
+        const socket = io('http://localhost:5178');
+
+        socket.on('connect' , () => {
+           console.log('WebSocket connected'); 
+           LeaderPage();
+        });
+
+        return () => {
+            socket.disconnect();
+        };
+
+    });
+};
+
 
 //位置情報取得テスト用
 export const LeaderPage = () => {
@@ -37,6 +55,8 @@ export const LeaderPage = () => {
         }
         console.log("位置情報を取得しました");
     }, [selfCoords, calculatedDistance]); 
+
+    WebSocketComponent();
 
     return (
         <PageWrapper>
@@ -85,3 +105,4 @@ export const LeaderPage = () => {
         </PageWrapper>
     );
 };
+;
