@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const EndpointUrl:string = import.meta.env.VITE_API_URL
-const EndpointUrl = "http://localhost:5178"
+const EndpointUrl = import.meta.env.VITE_API_URL
 
 export const apiClient = axios.create({
     baseURL: EndpointUrl,
