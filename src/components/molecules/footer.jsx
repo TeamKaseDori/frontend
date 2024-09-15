@@ -7,7 +7,7 @@ export const Footer = () => {
         <footer className="bg-dark text-white py-3">
             <Container className="text-center">
                 <Link to="/" style={{textDecoration: "none", color:"white"}}>
-                    <h3 className="mt-2 mb-4">名称未定</h3>
+                    <h3 className="mt-2 mb-4">SAI Matching</h3>
                 </Link>
 
                 <p>Made by チームカサ鳥 2024</p>
