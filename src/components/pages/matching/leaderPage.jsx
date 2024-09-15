@@ -8,6 +8,8 @@ import { Container } from "react-bootstrap";
 import { PartnerDirection } from "../../../hooks/calculation/useCalculation";
 import io from 'socket.io-client';
 
+const endPointURL = import.meta.env.VITE_API_URL
+
 const TestDataTokyoStation = {
     Latitude:35.6809591,
     Longitude:139.7673068
@@ -15,7 +17,7 @@ const TestDataTokyoStation = {
 
 const WebSocketComponent = () => {
     useEffect ( () => {
-        const socket = io('http://localhost:5178');
+        const socket = io(endPointURL);
 
         socket.on('connect' , () => {
            console.log('WebSocket connected'); 
@@ -28,6 +30,7 @@ const WebSocketComponent = () => {
 
     });
 };
+
 
 
 //位置情報取得テスト用
