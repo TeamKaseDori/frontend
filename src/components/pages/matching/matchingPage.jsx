@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Spinner, Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { KasedoriAnimation } from "../../molecules/kasedoriAnimation/kasedoriAnimation";
 
 export const MatchingPage = () => {
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ export const MatchingPage = () => {
                     </Spinner>
                     <p>マッチング中...</p>
                     <p>目的地に向かいながらお待ちください</p>
+                    <KasedoriAnimation />
                 </Col>
             </Row>
 
