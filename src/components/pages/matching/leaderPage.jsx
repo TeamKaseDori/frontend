@@ -8,32 +8,12 @@ import { PartnerDirection } from "../../../hooks/calculation/useCalculation";
 import { ExplanationMatchingFlush } from "../../molecules/explanationFlush";
 import { useNavigate } from "react-router-dom";
 import { DistanceDirectionCircle } from "../../organisms/leader/distanceDirectionCircle";
-import io from 'socket.io-client';
-
-const endPointURL = import.meta.env.VITE_API_URL
+import { WebSocketMatching } from "../../../hooks/api/useSocketMatching";
 
 const TestDataTokyoStation = {
     Latitude:35.6809591,
     Longitude:139.7673068
 }
-
-const WebSocketComponent = () => {
-    useEffect ( () => {
-        const socket = io(endPointURL);
-
-        socket.on('connect' , () => {
-           console.log('WebSocket connected'); 
-           LeaderPage();
-        });
-
-        return () => {
-            socket.disconnect();
-        };
-
-    });
-};
-
-
 
 //位置情報取得テスト用
 export const LeaderPage = () => {
@@ -77,9 +57,10 @@ export const LeaderPage = () => {
         console.log("位置情報を取得しました");
     }, [selfCoords, calculatedDistance]); 
 
-    WebSocketComponent();
-
-    
+    WebSocketMatching(
+            // selfCoords.coords.latitude, 
+            // selfCoords.coords.longitude
+    );
 
     return (
         <Container>

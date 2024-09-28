@@ -17,7 +17,7 @@ export const LoginPage = () => {
     };
 
     const onClickLogin = () => {
-        alert(`${email}\n${password}`);
+        // alert(`${email}\n${password}`);
         doLogin(email, password);
     };
 
