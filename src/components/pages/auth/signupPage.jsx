@@ -35,10 +35,10 @@ export const SignupPage = () => {
     }
 
     const onClickSignUp = () => {
-        alert(
-            `${username}\n${email}\n${password}\n${confirm}\n
-                ${gender}\n${birthday}\n${userHobbies}`
-        );
+        // alert(
+        //     `${username}\n${email}\n${password}\n${confirm}\n
+        //         ${gender}\n${birthday}\n${userHobbies}`
+        // );
         doSignUp(signUpData);
     };
 

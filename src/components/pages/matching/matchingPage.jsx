@@ -20,6 +20,7 @@ export const MatchingPage = () => {
     }
 
     useEffect(() => {
+        
         const timer = setTimeout(() => {
         handleShow();
         }, 4000);

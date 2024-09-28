@@ -99,7 +99,7 @@ export const useSignUp = () => {
             saveUserToSessionStorage(user);
             
             navigate('/login');
-            alert('トークンを取得しました');
+            alert('新規登録しました');
 
         } catch {
             setError(true);
